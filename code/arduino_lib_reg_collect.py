@@ -31,7 +31,7 @@ def simplestats():
     file1 = open("repositories.txt", "r")
     Lines = file1.readlines()
     Lines2 = [item.replace(".git", "") for item in Lines]
-    # do we have duplicate entrys?
+    # do we have duplicate entries?
     dupes = [item for item, count in Counter(Lines2).items() if count > 1]
     print(f"Dupes: {dupes}")
     # count different base urls and "owners":
@@ -163,7 +163,7 @@ def gitlabapiquery(url=None):
     parts = url.split("/")
     # Construct the transformed URL
     transformed_url = f"https://gitlab.com/api/v4/projects/{'%2F'.join(parts[3:])}"
-    token = "glpat-ccccccccccccc" # token needed!
+    token = "glpat-ccccccccccccc"  # token needed!
 
     login = requests.get(transformed_url, headers={"PRIVATE-TOKEN": token}, timeout=10)
     # print(login.json())
@@ -187,7 +187,7 @@ def githubapiquery(url=None):
         print(f"Skip: {url}")
         return 0
     # store individual json from github api
-    # get it with api key, to have enough querys
+    # get it with api key, to have enough queries
     # also check on api usage while doing so.
     # read in the file
     parts = url.split("/")
@@ -210,7 +210,7 @@ def githubapiquery(url=None):
             int(login.headers["X-RateLimit-Reset"])
         ).strftime("%Y-%m-%d %H:%M:%S")
         print(
-            f"Querys left: {login.headers['X-RateLimit-Remaining']}, Reset at: {resettime}"
+            f"Queries left: {login.headers['X-RateLimit-Remaining']}, Reset at: {resettime}"
         )
     return 1
 

@@ -19,7 +19,7 @@ def simplestats():
     file1 = open("repositories.txt", "r")
     Lines = file1.readlines()
     Lines2 = [item.replace(".git", "") for item in Lines]
-    # do we have duplicate entrys?
+    # do we have duplicate entries?
     dupes = [item for item, count in Counter(Lines2).items() if count > 1]
     print(f"Dupes: {dupes}")
     # count different base urls and "owners":
@@ -104,7 +104,7 @@ def combinedstats():
 
     print("done")
     fig = px.scatter(
-        DataToUse, # or use FilterData here
+        DataToUse,  # or use FilterData here
         x="age",
         y="lastedit",
         color="lintlen",
