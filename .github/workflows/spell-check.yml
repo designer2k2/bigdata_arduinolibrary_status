@@ -16,4 +16,4 @@ jobs:
       - name: Spell check
         uses: codespell-project/actions-codespell@master
         with:
-          ignore_words_list: als
+          skip: repositories.txt, repositories3.txt
